@@ -1,0 +1,166 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Simulation {% endblock title %}
+
+{% block content %}
+
+<div class="header pb-6 d-flex align-items-center" 
+     style="min-height: 500px; background-image: url(/static/assets/img/theme/AIZatyiJdSGLO8pdclul--4--nkfiq.jpg); background-size: cover; background-position: center top;">
+  <!-- Mask -->
+  <span class="mask bg-gradient-default opacity-8"></span>
+  <!-- Header container -->
+  <div class="container-fluid d-flex align-items-center">
+    <div class="row">
+      <div class="col-lg-7 col-md-10">
+        <h1 class="display-2 text-white"> 
+          BIENVENUE {{ current_user.username }},
+        </h1>
+        <p class="text-white mt-0 mb-5">Avec SOL HORIZON, l'énergie renouvelable est à portée de main</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+  <div class="row">
+    
+    <div class="col-xl-12 order-xl-1">
+      <div class="card">
+        <div class="card-header">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h2 class="mb-0">SIMULATION  </h2>
+            </div>
+            <div class="col-4 text-right">
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form>
+            <h3 class="heading-small text-muted mb-4">Veuillez saisir les informations suivantes : </h3>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-username">Panneau Marque</label>
+                    <select class="form-select form-control" aria-label="Default select example">
+                      <option selected>Photowatt</option>
+                      <option value="1">Sanyo</option>
+                      <option value="2">Imerys</option>
+                      <option value="3">Roto Frank</option>
+                      <option value="4">Total Energie</option>
+                      <option value="5">SHARP</option>
+                      <option value="6">CONERGY</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-email">Panneaux Modele</label>
+                    <select class="form-select form-control" aria-label="Default select example">
+                      <option selected>PW6 / 110W Compact</option>
+                      <option value="1">HIP-215 NKHE1</option>
+                      <option value="2">Solardachziegel (50 Wc)</option>
+                      <option value="3">SPR 10/20 280 (272Wc)</option>
+                      <option value="4">TE 2000/210W Mono</option>
+                      <option value="5">NE-165 U1</option>
+                      <option value="6">C 125 PL</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Puissance Crete</label>
+                    <input type="text" id="input-first-name" disabled class="form-control" placeholder="300 Wc">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Production PVGIS</label>
+                    <input type="text" id="input-first-name"disabled  class="form-control" value="270 kWh/an">
+                  </div>
+                </div>
+              </div>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Pente °</label>
+                    <input type="text" id="input-first-name"  class="form-control" placeholder="" value="45">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Orientation</label>
+                    <input type="text" id="input-Surface"  class="form-control" placeholder="" value="-30">
+
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Surface m²</label>
+                    <input type="text" id="input-Surface"  class="form-control" placeholder="Surface" value="500">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <hr class="my-4" />
+            <!-- Address -->
+            <h6 class="heading-small text-muted mb-4">Localisation</h6>
+            <div class="pl-lg-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-address">Adresse</label>
+                    <input id="input-address" disabled class="form-control" placeholder="Home Address" value="3 Rue Louis Marchal" type="text">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-city">Ville</label>
+                    <input type="text" id="input-city"disabled  class="form-control" placeholder="Ville" value="Belfort">
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-country">Code postal</label>
+                    <input type="number" id="input-postal-code" disabled class="form-control" placeholder="90000">
+                  </div>
+                </div>
+
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-country">Pays</label>
+                    <input type="text" id="input-country" disabled class="form-control" placeholder="Country" value="FRANCE">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" />
+            <!-- Description -->
+            <div class="d-inline justify-content-center" >
+              <div><h2 class="text-muted mb-4">Charger le Dashboard</h2> <br></div>
+              <div><button type="button" class="btn btn-dark"> <a href="index.html" style="color: aliceblue;">Envoyer</a>   </button></div>
+          </div>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include "includes/footer.html" %}
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}{% endblock javascripts %}

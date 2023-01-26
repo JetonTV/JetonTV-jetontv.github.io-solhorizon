@@ -1,0 +1,99 @@
+<!--
+=========================================================
+* Argon Dashboard - v1.2.0
+=========================================================
+* Product Page: https://www.creative-tim.com/product/argon-dashboard
+
+
+* Copyright  Creative Tim (http://www.creative-tim.com)
+* Coded by www.creative-tim.com
+
+
+
+=========================================================
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="canonical" href="https://appseed.us/admin-dashboards/flask-boilerplate-dashboard-argon">
+
+  <title>
+    {% block title %} Open-Source Admin Panel {% endblock %}
+  </title>
+
+  <!-- Favicon - loaded as static -->
+  <link rel="icon" href="/static/assets/img/brand/favicon.png" type="image/png">
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+  <!-- Icons -->
+  <link rel="stylesheet" href="/static/assets/vendor/nucleo/css/nucleo.css" type="text/css">
+  <link rel="stylesheet" href="/static/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
+  <!-- Page plugins -->
+  <!-- Argon CSS -->
+  <link rel="stylesheet" href="/static/assets/css/argon.css?v=1.2.0" type="text/css">
+
+  <!-- Specific CSS goes HERE -->
+  {% block stylesheets %}{% endblock stylesheets %}
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        var map;
+        var marker;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 0, lng: 0 },
+                zoom: 8,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            getLocation();
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            var pos = new google.maps.LatLng(lat, lng);
+            marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "Your Location"
+            });
+            map.setCenter(pos);
+        }
+        google.maps.event.addDomListener(window, 'load', initMap);
+    </script>
+</head>
+
+<body class="">
+
+  {% include "includes/sidenav.html" %}
+
+  <div class="main-content" id="panel">
+
+    {% include "includes/navigation.html" %}
+
+    {% block content %}{% endblock content %}
+
+  </div>
+
+  {% include "includes/scripts.html" %}
+
+  <!-- Specific JS goes HERE --> 
+  {% block javascripts %}{% endblock javascripts %}
+
+  <script src="/static/assets/js/argon.js?v=1.2.0"></script>
+
+</body>
+
+</html>
